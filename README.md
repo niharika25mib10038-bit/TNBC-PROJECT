@@ -27,7 +27,7 @@
 
 1. **Basal-like 1 (BL1)**: High cell cycle activation, DNA damage response deficits, high sensitivity to DNA cross-linking agents (e.g. Cisplatin) and PARP inhibitors.
 2. **Basal-like 2 (BL2)**: Enriched in growth factor signaling (EGFR, MET), glycolysis, and myoepithelial differentiation markers.
-3. **Mesenchymal (MSL)**: Characterized by cell motility, epithelial-to-mesenchymal transition (EMT), extracellular matrix remodeling, and angiogenesis.
+3. **Mesenchymal (M)**: Characterized by cell motility, epithelial-to-mesenchymal transition (EMT), extracellular matrix remodeling, and angiogenesis.
 4. **Luminal Androgen Receptor (LAR)**: Driven by androgen receptor ($AR^+$) signaling and luminal gene expression; candidates for anti-androgen and CDK4/6 inhibitor therapy.
 
 **TNBC-Insight AI** investigates whether these complex genomic phenotypes manifest identifiable morphologic signatures in standard **Hematoxylin and Eosin (H&E)** stained whole-slide histopathology images. The platform combines deep transfer learning (ResNet-50), optical density stain deconvolution (Macenko normalization), and visual interpretability (Grad-CAM) in a modern clinical research environment.
