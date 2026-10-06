@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 dark:bg-slate-800/50 backdrop-blur-md border border-white/20 dark:border-slate-700/50 shadow-lg rounded-xl;
+  }
+  
+  .glass-panel {
+    @apply bg-white/90 dark:bg-slate-900/80 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 shadow-xl rounded-2xl;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-medical-teal dark:from-primary-400 dark:to-medical-cyan;
+  }
+
+  .status-dot {
+    @apply w-2.5 h-2.5 rounded-full inline-block mr-2 shadow-sm;
+  }
+  
+  .status-dot.online {
+    @apply bg-accent-500 shadow-accent-500/50;
+  }
+  
+  .status-dot.offline {
+    @apply bg-red-500 shadow-red-500/50;
+  }
+  
+  .status-dot.warning {
+    @apply bg-amber-500 shadow-amber-500/50;
+  }
+  
+  .status-dot.demo {
+    @apply bg-purple-500 shadow-purple-500/50;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}
+
+/* Skeleton Loading Animation */
+.skeleton {
+  @apply animate-pulse bg-slate-200 dark:bg-slate-700 rounded;
+}
+
+/* Animated Background */
+.animated-bg {
+  background: linear-gradient(-45deg, #eff6ff, #f8fafc, #ecfdf5, #f0fdf4);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.dark .animated-bg {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #064e3b);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
