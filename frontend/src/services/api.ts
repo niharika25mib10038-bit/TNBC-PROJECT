@@ -1,92 +1,105 @@
-import type {
-  Analysis,
-  PredictionResult,
-  ModelStatus,
-  ModelMetrics,
-  SubtypeInfo,
-  TrialInfo,
-  SystemStatus
-} from '../types';
-export const fetchHealth = async () => {
-  const res = await fetch('/api/health');
-  if (!res.ok) throw new Error('Network response was not ok');
-  return res.json();
-};
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
 
-export const analyzeImage = async (file: File): Promise<PredictionResult> => {
+export async function checkHealth() {
+  const res = await fetch(`${API_BASE_URL}/api/health`);
+
+  if (!res.ok) {
+    throw new Error('Backend health check failed');
+  }
+
+  return res.json();
+}
+
+export async function analyzeImage(file: File) {
   const formData = new FormData();
   formData.append('file', file);
-  const res = await fetch('/api/analyze', {
+
+  const res = await fetch(`${API_BASE_URL}/api/analyze`, {
     method: 'POST',
     body: formData,
   });
-  if (!res.ok) throw new Error('Analysis failed');
-  return res.json();
-};
 
-export const preprocessImage = async (file: File) => {
+  if (!res.ok) {
+    throw new Error('Analysis could not be completed');
+  }
+
+  return res.json();
+}
+
+export async function preprocessImage(file: File) {
   const formData = new FormData();
   formData.append('file', file);
-  const res = await fetch('/api/preprocess', {
+
+  const res = await fetch(`${API_BASE_URL}/api/preprocess`, {
     method: 'POST',
     body: formData,
   });
-  if (!res.ok) throw new Error('Preprocessing failed');
-  return res.json();
-};
 
-export const fetchAnalyses = async (filters?: Record<string, string>): Promise<Analysis[]> => {
-  const query = filters ? new URLSearchParams(filters).toString() : '';
-  const url = query ? `/api/analyses?${query}` : '/api/analyses';
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Failed to fetch analyses');
-  return res.json();
-};
+  if (!res.ok) {
+    throw new Error('Image preprocessing failed');
+  }
 
-export const fetchAnalysis = async (id: string): Promise<Analysis> => {
-  const res = await fetch(`/api/analyses/${id}`);
-  if (!res.ok) throw new Error('Failed to fetch analysis');
   return res.json();
-};
+}
 
-export const deleteAnalysis = async (id: string) => {
-  const res = await fetch(`/api/analyses/${id}`, { method: 'DELETE' });
-  if (!res.ok) throw new Error('Failed to delete analysis');
-  return res.json();
-};
+export async function getModelStatus() {
+  const res = await fetch(`${API_BASE_URL}/api/model/status`);
 
-export const fetchModelStatus = async (): Promise<ModelStatus> => {
-  const res = await fetch('/api/model/status');
-  if (!res.ok) throw new Error('Failed to fetch model status');
-  return res.json();
-};
+  if (!res.ok) {
+    throw new Error('Could not fetch model status');
+  }
 
-export const fetchModelMetrics = async (): Promise<ModelMetrics> => {
-  const res = await fetch('/api/model/metrics');
-  if (!res.ok) throw new Error('Failed to fetch model metrics');
   return res.json();
-};
+}
 
-export const fetchSubtypes = async (): Promise<SubtypeInfo[]> => {
-  const res = await fetch('/api/subtypes');
-  if (!res.ok) throw new Error('Failed to fetch subtypes');
-  return res.json();
-};
+export async function getModelMetrics() {
+  const res = await fetch(`${API_BASE_URL}/api/model/metrics`);
 
-export const fetchTrials = async (): Promise<TrialInfo[]> => {
-  const res = await fetch('/api/trials');
-  if (!res.ok) throw new Error('Failed to fetch trials');
-  return res.json();
-};
+  if (!res.ok) {
+    throw new Error('Could not fetch model metrics');
+  }
 
-export const fetchSystemStatus = async (): Promise<SystemStatus> => {
-  const res = await fetch('/api/system/status');
-  if (!res.ok) throw new Error('Failed to fetch system status');
   return res.json();
-};
+}
 
-export const resetDemo = async () => {
-  const res = await fetch('/api/demo/reset', { method: 'POST' });
-  if (!res.ok) throw new Error('Failed to reset demo');
+export async function getSubtypes() {
+  const res = await fetch(`${API_BASE_URL}/api/subtypes`);
+
+  if (!res.ok) {
+    throw new Error('Could not fetch subtypes');
+  }
+
   return res.json();
-};
+}
+
+export async function getTrials() {
+  const res = await fetch(`${API_BASE_URL}/api/trials`);
+
+  if (!res.ok) {
+    throw new Error('Could not fetch trials');
+  }
+
+  return res.json();
+}
+
+export async function getSystemStatus() {
+  const res = await fetch(`${API_BASE_URL}/api/system/status`);
+
+  if (!res.ok) {
+    throw new Error('Could not fetch system status');
+  }
+
+  return res.json();
+}
+
+export async function resetDemo() {
+  const res = await fetch(`${API_BASE_URL}/api/demo/reset`, {
+    method: 'POST',
+  });
+
+  if (!res.ok) {
+    throw new Error('Could not reset demo');
+  }
+
+  return res.json();
+}
