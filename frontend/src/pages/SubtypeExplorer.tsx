@@ -91,19 +91,16 @@ const DATA: Record<
 };
 
 /* =========================================================
-   BL1 — DNA + CELL DIVISION
+   BL1 VISUAL
 ========================================================= */
 
 function BL1Visual() {
   return (
-    <div className="relative h-[380px] overflow-hidden rounded-3xl border border-blue-500/40 bg-[#020617]">
-
-      {/* glow */}
+    <div className="relative h-[430px] overflow-hidden rounded-3xl border border-blue-500/40 bg-[#020617]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.22),transparent_45%)]" />
 
-      {/* DNA helix */}
       <svg
-        viewBox="0 0 700 380"
+        viewBox="0 0 700 430"
         className="absolute inset-0 h-full w-full"
       >
         <defs>
@@ -118,20 +115,20 @@ function BL1Visual() {
 
         <g filter="url(#blueGlow)">
           <path
-            d="M80 35 C170 85 170 125 80 175 C-10 225 -10 270 80 330"
+            d="M80 55 C170 105 170 145 80 195 C-10 245 -10 290 80 345"
             fill="none"
             stroke="#2563eb"
             strokeWidth="6"
           />
 
           <path
-            d="M155 35 C65 85 65 125 155 175 C245 225 245 270 155 330"
+            d="M155 55 C65 105 65 145 155 195 C245 245 245 290 155 345"
             fill="none"
             stroke="#60a5fa"
             strokeWidth="6"
           />
 
-          {[65, 105, 145, 185, 225, 265, 305].map((y) => (
+          {[85, 125, 165, 205, 245, 285, 325].map((y) => (
             <line
               key={y}
               x1="68"
@@ -145,11 +142,10 @@ function BL1Visual() {
           ))}
         </g>
 
-        {/* Main dividing cell */}
         <circle
           cx="405"
-          cy="190"
-          r="92"
+          cy="205"
+          r="95"
           fill="#0f172a"
           stroke="#3b82f6"
           strokeWidth="5"
@@ -157,40 +153,38 @@ function BL1Visual() {
 
         <circle
           cx="405"
-          cy="190"
-          r="34"
+          cy="205"
+          r="35"
           fill="#2563eb"
           opacity="0.9"
         />
 
         <circle
           cx="405"
-          cy="190"
-          r="110"
+          cy="205"
+          r="115"
           fill="none"
           stroke="#3b82f6"
           strokeWidth="2"
           opacity="0.25"
-          className="animate-ping"
         />
 
-        {/* division */}
         <path
-          d="M505 190 H555"
+          d="M510 205 H560"
           stroke="#60a5fa"
           strokeWidth="5"
         />
 
         <path
-          d="M540 178 L557 190 L540 202"
+          d="M545 193 L562 205 L545 217"
           fill="none"
           stroke="#60a5fa"
           strokeWidth="5"
         />
 
         <circle
-          cx="610"
-          cy="150"
+          cx="615"
+          cy="165"
           r="43"
           fill="#0f172a"
           stroke="#3b82f6"
@@ -198,20 +192,20 @@ function BL1Visual() {
         />
 
         <circle
-          cx="610"
-          cy="230"
+          cx="615"
+          cy="245"
           r="43"
           fill="#0f172a"
           stroke="#3b82f6"
           strokeWidth="4"
         />
 
-        <circle cx="610" cy="150" r="17" fill="#2563eb" />
-        <circle cx="610" cy="230" r="17" fill="#2563eb" />
+        <circle cx="615" cy="165" r="17" fill="#2563eb" />
+        <circle cx="615" cy="245" r="17" fill="#2563eb" />
 
         <text
-          x="280"
-          y="350"
+          x="250"
+          y="395"
           fill="#60a5fa"
           fontSize="18"
           fontWeight="bold"
@@ -236,17 +230,16 @@ function BL1Visual() {
 }
 
 /* =========================================================
-   BL2 — GROWTH SIGNALS + METABOLISM
+   BL2 VISUAL
 ========================================================= */
 
 function BL2Visual() {
   return (
-    <div className="relative h-[380px] overflow-hidden rounded-3xl border border-amber-500/40 bg-[#020617]">
-
+    <div className="relative h-[430px] overflow-hidden rounded-3xl border border-amber-500/40 bg-[#020617]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_50%,rgba(245,158,11,0.22),transparent_48%)]" />
 
       <svg
-        viewBox="0 0 700 380"
+        viewBox="0 0 700 430"
         className="absolute inset-0 h-full w-full"
       >
         <defs>
@@ -259,20 +252,18 @@ function BL2Visual() {
           </filter>
         </defs>
 
-        {/* signalling molecules */}
-        {[80, 155, 230].map((y, i) => (
+        {[100, 185, 270].map((y) => (
           <g key={y}>
             <circle
               cx="65"
               cy={y}
-              r="17"
+              r="18"
               fill="#f59e0b"
               filter="url(#orangeGlow)"
-              className={i === 1 ? 'animate-pulse' : ''}
             />
 
             <path
-              d={`M88 ${y} H220`}
+              d={`M90 ${y} H220`}
               stroke="#fbbf24"
               strokeWidth="4"
               strokeDasharray="12 8"
@@ -287,49 +278,82 @@ function BL2Visual() {
           </g>
         ))}
 
-        {/* cell */}
         <circle
           cx="330"
-          cy="190"
-          r="100"
+          cy="215"
+          r="105"
           fill="#451a03"
           stroke="#f59e0b"
           strokeWidth="5"
         />
 
-        {/* receptor */}
         <path
-          d="M300 92 V125 M360 92 V125"
+          d="M300 105 V140 M360 105 V140"
           stroke="#fbbf24"
           strokeWidth="8"
         />
 
-        {/* nucleus */}
         <circle
           cx="330"
-          cy="190"
-          r="38"
+          cy="215"
+          r="40"
           fill="#d97706"
           filter="url(#orangeGlow)"
         />
 
-        {/* metabolic network */}
-        <circle cx="500" cy="110" r="29" fill="#78350f" stroke="#fbbf24" strokeWidth="3" />
-        <circle cx="565" cy="190" r="29" fill="#78350f" stroke="#fbbf24" strokeWidth="3" />
-        <circle cx="500" cy="270" r="29" fill="#78350f" stroke="#fbbf24" strokeWidth="3" />
+        <circle
+          cx="500"
+          cy="125"
+          r="30"
+          fill="#78350f"
+          stroke="#fbbf24"
+          strokeWidth="3"
+        />
 
-        <path d="M370 160 L475 115" stroke="#fbbf24" strokeWidth="4" />
-        <path d="M370 190 H535" stroke="#fbbf24" strokeWidth="4" />
-        <path d="M370 220 L475 265" stroke="#fbbf24" strokeWidth="4" />
+        <circle
+          cx="565"
+          cy="215"
+          r="30"
+          fill="#78350f"
+          stroke="#fbbf24"
+          strokeWidth="3"
+        />
+
+        <circle
+          cx="500"
+          cy="305"
+          r="30"
+          fill="#78350f"
+          stroke="#fbbf24"
+          strokeWidth="3"
+        />
+
+        <path
+          d="M370 180 L475 130"
+          stroke="#fbbf24"
+          strokeWidth="4"
+        />
+
+        <path
+          d="M370 215 H535"
+          stroke="#fbbf24"
+          strokeWidth="4"
+        />
+
+        <path
+          d="M370 250 L475 300"
+          stroke="#fbbf24"
+          strokeWidth="4"
+        />
 
         <text
-          x="430"
-          y="330"
+          x="420"
+          y="390"
           fill="#fbbf24"
           fontSize="18"
           fontWeight="bold"
         >
-          METABOLIC PROGRAMMES
+          GROWTH • SIGNALS • METABOLISM
         </text>
       </svg>
 
@@ -337,7 +361,7 @@ function BL2Visual() {
         BL2 • GROWTH + METABOLISM
       </div>
 
-      <div className="absolute right-5 top-16 rounded-xl border border-amber-500/30 bg-slate-950/80 p-3 text-xs text-amber-300">
+      <div className="absolute right-5 top-20 rounded-xl border border-amber-500/30 bg-slate-950/80 p-3 text-xs text-amber-300">
         ⚡ Growth-factor signalling
       </div>
 
@@ -349,95 +373,108 @@ function BL2Visual() {
 }
 
 /* =========================================================
-   M — EMT + CELL MOVEMENT
+   M VISUAL
 ========================================================= */
 
 function MVisual() {
   return (
-    <div className="relative h-[380px] overflow-hidden rounded-3xl border border-emerald-500/40 bg-[#020617]">
-
+    <div className="relative h-[430px] overflow-hidden rounded-3xl border border-emerald-500/40 bg-[#020617]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_50%,rgba(16,185,129,0.20),transparent_50%)]" />
 
       <svg
-        viewBox="0 0 700 380"
+        viewBox="0 0 700 430"
         className="absolute inset-0 h-full w-full"
       >
-        {/* ECM network */}
         <g opacity="0.35">
           <path
-            d="M0 90 C100 20 170 140 270 70 S460 20 700 100"
+            d="M0 100 C100 30 170 150 270 80 S460 30 700 110"
             fill="none"
             stroke="#10b981"
             strokeWidth="5"
           />
 
           <path
-            d="M0 280 C100 210 170 330 270 260 S460 210 700 290"
+            d="M0 310 C100 240 170 360 270 290 S460 240 700 320"
             fill="none"
             stroke="#10b981"
             strokeWidth="5"
           />
 
           <path
-            d="M100 0 L160 380"
+            d="M100 0 L160 430"
             stroke="#34d399"
             strokeWidth="3"
           />
 
           <path
-            d="M500 0 L430 380"
+            d="M500 0 L430 430"
             stroke="#34d399"
             strokeWidth="3"
           />
         </g>
 
-        {/* migrating cells */}
-        <g className="animate-pulse">
+        <ellipse
+          cx="130"
+          cy="235"
+          rx="75"
+          ry="34"
+          fill="#052e24"
+          stroke="#10b981"
+          strokeWidth="5"
+          transform="rotate(-12 130 235)"
+        />
 
-          <ellipse
-            cx="130"
-            cy="210"
-            rx="75"
-            ry="34"
-            fill="#052e24"
-            stroke="#10b981"
-            strokeWidth="5"
-            transform="rotate(-12 130 210)"
-          />
+        <ellipse
+          cx="340"
+          cy="160"
+          rx="78"
+          ry="33"
+          fill="#052e24"
+          stroke="#10b981"
+          strokeWidth="5"
+          transform="rotate(8 340 160)"
+        />
 
-          <ellipse
-            cx="340"
-            cy="145"
-            rx="78"
-            ry="33"
-            fill="#052e24"
-            stroke="#10b981"
-            strokeWidth="5"
-            transform="rotate(8 340 145)"
-          />
+        <ellipse
+          cx="540"
+          cy="260"
+          rx="78"
+          ry="34"
+          fill="#052e24"
+          stroke="#10b981"
+          strokeWidth="5"
+          transform="rotate(-8 540 260)"
+        />
 
-          <ellipse
-            cx="540"
-            cy="235"
-            rx="78"
-            ry="34"
-            fill="#052e24"
-            stroke="#10b981"
-            strokeWidth="5"
-            transform="rotate(-8 540 235)"
-          />
-        </g>
+        <path
+          d="M205 220 H270"
+          stroke="#34d399"
+          strokeWidth="5"
+        />
 
-        {/* migration arrows */}
-        <path d="M205 195 H270" stroke="#34d399" strokeWidth="5" />
-        <path d="M255 183 L272 195 L255 207" fill="none" stroke="#34d399" strokeWidth="5" />
+        <path
+          d="M255 208 L272 220 L255 232"
+          fill="none"
+          stroke="#34d399"
+          strokeWidth="5"
+        />
 
-        <path d="M420 170 H485" stroke="#34d399" strokeWidth="5" />
-        <path d="M470 158 L487 170 L470 182" fill="none" stroke="#34d399" strokeWidth="5" />
+        <path
+          d="M420 185 H485"
+          stroke="#34d399"
+          strokeWidth="5"
+        />
+
+        <path
+          d="M470 173 L487 185 L470 197"
+          fill="none"
+          stroke="#34d399"
+          strokeWidth="5"
+        />
 
         <text
           x="225"
-          y="335"
+          y="395"
           fill="#34d399"
           fontSize="18"
           fontWeight="bold"
@@ -450,7 +487,7 @@ function MVisual() {
         M • MESENCHYMAL
       </div>
 
-      <div className="absolute right-5 top-16 rounded-xl border border-emerald-500/30 bg-slate-950/80 p-3 text-xs text-emerald-300">
+      <div className="absolute right-5 top-20 rounded-xl border border-emerald-500/30 bg-slate-950/80 p-3 text-xs text-emerald-300">
         ↗ EMT transition
       </div>
 
@@ -462,17 +499,16 @@ function MVisual() {
 }
 
 /* =========================================================
-   LAR — ANDROGEN RECEPTOR
+   LAR VISUAL
 ========================================================= */
 
 function LARVisual() {
   return (
-    <div className="relative h-[380px] overflow-hidden rounded-3xl border border-purple-500/40 bg-[#020617]">
-
+    <div className="relative h-[430px] overflow-hidden rounded-3xl border border-purple-500/40 bg-[#020617]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_50%,rgba(192,132,252,0.22),transparent_48%)]" />
 
       <svg
-        viewBox="0 0 700 380"
+        viewBox="0 0 700 430"
         className="absolute inset-0 h-full w-full"
       >
         <defs>
@@ -485,19 +521,17 @@ function LARVisual() {
           </filter>
         </defs>
 
-        {/* androgen hormone */}
         <circle
           cx="70"
-          cy="190"
+          cy="215"
           r="24"
           fill="#c084fc"
           filter="url(#purpleGlow)"
-          className="animate-pulse"
         />
 
         <circle
           cx="70"
-          cy="190"
+          cy="215"
           r="42"
           fill="none"
           stroke="#c084fc"
@@ -505,44 +539,40 @@ function LARVisual() {
           opacity="0.4"
         />
 
-        {/* signal */}
         <path
-          d="M115 190 H225"
+          d="M115 215 H225"
           stroke="#d8b4fe"
           strokeWidth="5"
         />
 
         <path
-          d="M210 178 L228 190 L210 202"
+          d="M210 203 L228 215 L210 227"
           fill="none"
           stroke="#d8b4fe"
           strokeWidth="5"
         />
 
-        {/* cell */}
         <circle
           cx="345"
-          cy="190"
+          cy="215"
           r="105"
           fill="#2e1065"
           stroke="#c084fc"
           strokeWidth="5"
         />
 
-        {/* nucleus */}
         <circle
           cx="345"
-          cy="190"
+          cy="215"
           r="52"
           fill="#581c87"
           stroke="#e9d5ff"
           strokeWidth="3"
         />
 
-        {/* AR */}
         <rect
           x="322"
-          y="167"
+          y="192"
           width="46"
           height="46"
           rx="10"
@@ -552,7 +582,7 @@ function LARVisual() {
 
         <text
           x="332"
-          y="197"
+          y="222"
           fill="#2e1065"
           fontSize="19"
           fontWeight="bold"
@@ -560,38 +590,36 @@ function LARVisual() {
           AR
         </text>
 
-        {/* gene regulation */}
         <path
-          d="M400 190 H520"
+          d="M400 215 H520"
           stroke="#d8b4fe"
           strokeWidth="5"
         />
 
         <path
-          d="M505 178 L523 190 L505 202"
+          d="M505 203 L523 215 L505 227"
           fill="none"
           stroke="#d8b4fe"
           strokeWidth="5"
         />
 
-        {/* DNA */}
         <path
-          d="M555 130 C610 155 610 185 555 210 C500 235 500 265 555 290"
+          d="M555 155 C610 180 610 210 555 235 C500 260 500 290 555 315"
           fill="none"
           stroke="#c084fc"
           strokeWidth="4"
         />
 
         <path
-          d="M610 130 C555 155 555 185 610 210 C665 235 665 265 610 290"
+          d="M610 155 C555 180 555 210 610 235 C665 260 665 290 610 315"
           fill="none"
           stroke="#e9d5ff"
           strokeWidth="4"
         />
 
         <text
-          x="440"
-          y="335"
+          x="410"
+          y="395"
           fill="#d8b4fe"
           fontSize="18"
           fontWeight="bold"
@@ -604,7 +632,7 @@ function LARVisual() {
         LAR • HORMONE SIGNALLING
       </div>
 
-      <div className="absolute right-5 top-16 rounded-xl border border-purple-500/30 bg-slate-950/80 p-3 text-xs text-purple-300">
+      <div className="absolute right-5 top-20 rounded-xl border border-purple-500/30 bg-slate-950/80 p-3 text-xs text-purple-300">
         ◉ Androgen receptor activation
       </div>
 
@@ -615,11 +643,253 @@ function LARVisual() {
   );
 }
 
+/* =========================================================
+   VISUAL SELECTOR
+========================================================= */
+
 function Visual({ subtype }: { subtype: Subtype }) {
-  if (subtype === 'BL1') return <BL1Visual />;
-  if (subtype === 'BL2') return <BL2Visual />;
-  if (subtype === 'M') return <MVisual />;
-  return <LARVisual />;
+  switch (subtype) {
+    case 'BL1':
+      return <BL1Visual />;
+
+    case 'BL2':
+      return <BL2Visual />;
+
+    case 'M':
+      return <MVisual />;
+
+    case 'LAR':
+      return <LARVisual />;
+
+    default:
+      return null;
+  }
+}
+
+/* =========================================================
+   SUBTYPE CARD
+========================================================= */
+
+function SubtypeCard({
+  subtype,
+  onClick,
+}: {
+  subtype: Subtype;
+  onClick: () => void;
+}) {
+  const item = DATA[subtype];
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="group rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-1"
+      style={{
+        borderColor: '#1e293b',
+        background: 'rgba(15,23,42,0.7)',
+      }}
+    >
+      <div
+        className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-xl"
+        style={{
+          background: `${item.color}18`,
+          border: `1px solid ${item.color}50`,
+        }}
+      >
+        {subtype === 'BL1' && '🧬'}
+        {subtype === 'BL2' && '⚡'}
+        {subtype === 'M' && '↗'}
+        {subtype === 'LAR' && '◉'}
+      </div>
+
+      <div
+        className="text-xl font-bold"
+        style={{ color: item.color }}
+      >
+        {subtype}
+      </div>
+
+      <div className="mt-1 font-semibold text-white">
+        {item.name}
+      </div>
+
+      <div className="mt-2 text-xs leading-relaxed text-slate-500">
+        {item.short}
+      </div>
+
+      <div
+        className="mt-5 text-sm"
+        style={{ color: item.color }}
+      >
+        Explore →
+      </div>
+    </button>
+  );
+}
+
+/* =========================================================
+   SELECTED SUBTYPE PAGE
+========================================================= */
+
+function SelectedSubtype({
+  subtype,
+  onBack,
+}: {
+  subtype: Subtype;
+  onBack: () => void;
+}) {
+  const active = DATA[subtype];
+
+  return (
+    <div
+      key={subtype}
+      className="overflow-hidden rounded-3xl border bg-slate-900/60"
+      style={{
+        borderColor: `${active.color}55`,
+        boxShadow: `0 0 70px ${active.color}12`,
+      }}
+    >
+      {/* TOP BAR */}
+      <div className="border-b border-slate-800 p-6 md:p-8">
+
+        <button
+          type="button"
+          onClick={onBack}
+          className="mb-8 text-sm text-slate-400 transition hover:text-white"
+        >
+          ← Explore all subtypes
+        </button>
+
+        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+
+          <div>
+
+            <div
+              className="text-sm font-bold tracking-[0.25em]"
+              style={{ color: active.color }}
+            >
+              {subtype}
+            </div>
+
+            <h2 className="mt-1 text-4xl font-bold text-white">
+              {active.name}
+            </h2>
+
+          </div>
+
+          <div
+            className="w-fit rounded-full border px-4 py-2 text-sm font-semibold"
+            style={{
+              color: active.color,
+              borderColor: `${active.color}55`,
+              background: `${active.color}10`,
+            }}
+          >
+            {active.short}
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* CONTENT */}
+      <div className="p-6 md:p-8">
+
+        {/* ONLY SELECTED VISUAL */}
+        <Visual subtype={subtype} />
+
+        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+
+          {/* WHAT'S HAPPENING */}
+          <div>
+
+            <h3 className="mb-3 text-xl font-bold text-white">
+              🔬 What's happening?
+            </h3>
+
+            <p className="mb-6 leading-relaxed text-slate-400">
+              {active.description}
+            </p>
+
+            <div className="space-y-4">
+
+              {active.points.map((point) => (
+
+                <div
+                  key={point}
+                  className="flex items-start gap-3"
+                >
+
+                  <span
+                    className="mt-2 h-2 w-2 flex-shrink-0 rounded-full"
+                    style={{
+                      background: active.color,
+                      boxShadow: `0 0 12px ${active.color}`,
+                    }}
+                  />
+
+                  <p className="text-sm leading-relaxed text-slate-400">
+                    {point}
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* SCIENCE */}
+          <div>
+
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+              🧬 Science behind it
+            </h3>
+
+            <div className="flex flex-wrap gap-2">
+
+              {active.pathways.map((pathway) => (
+
+                <span
+                  key={pathway}
+                  className="rounded-full border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs text-slate-300"
+                >
+                  {pathway}
+                </span>
+
+              ))}
+
+            </div>
+
+            <div
+              className="mt-8 rounded-2xl border p-5"
+              style={{
+                borderColor: `${active.color}30`,
+                background: `${active.color}08`,
+              }}
+            >
+
+              <h3 className="mb-2 font-bold text-white">
+                🤖 Why does this matter for our AI?
+              </h3>
+
+              <p className="text-sm leading-relaxed text-slate-400">
+                Our system analyses H&amp;E tissue images and demonstrates
+                how an AI workflow can classify samples according to these
+                molecular subtype categories and provide visual explainability.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
 }
 
 /* =========================================================
@@ -627,305 +897,138 @@ function Visual({ subtype }: { subtype: Subtype }) {
 ========================================================= */
 
 export default function SubtypeExplorer() {
-  const [selected, setSelected] = useState<Subtype>('BL1');
 
-  const active = DATA[selected];
+  /*
+    null = show all four subtype cards
+    BL1/BL2/M/LAR = show only that subtype
+  */
+  const [selected, setSelected] = useState<Subtype | null>(null);
 
   return (
     <div className="min-h-screen -m-6 bg-[#020617] px-6 py-8 text-slate-100">
 
-      {/* HEADER */}
       <div className="mx-auto max-w-6xl">
 
-        <div className="mb-10">
+        {/* =================================================
+            ALL SUBTYPES VIEW
+        ================================================= */}
 
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900 px-4 py-2 text-sm text-slate-400">
-            🧬 Molecular Landscape
-          </div>
+        {selected === null && (
 
-          <h1 className="text-5xl font-bold leading-tight text-white">
-            Understanding{' '}
-            <span className="text-blue-400">
-              TNBC Subtypes
-            </span>
-          </h1>
+          <>
+            <div className="mb-10">
 
-          <p className="mt-5 max-w-4xl text-lg leading-relaxed text-slate-400">
-            Triple-Negative Breast Cancer (TNBC) is not one single
-            biological disease. Researchers have identified different
-            molecular patterns that help explain how tumour cells grow,
-            behave, and interact with their surroundings.
-          </p>
-
-          <div className="mt-6 max-w-3xl rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
-
-            <p className="font-semibold text-white">
-              💡 New to biology?
-            </p>
-
-            <p className="mt-1 text-sm leading-relaxed text-slate-400">
-              Think of these subtypes as four different biological
-              profiles that describe what is happening inside tumour cells.
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* SELECTOR */}
-        <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-
-          {(Object.keys(DATA) as Subtype[]).map((code) => {
-
-            const item = DATA[code];
-            const isActive = selected === code;
-
-            return (
-              <button
-                key={code}
-                onClick={() => setSelected(code)}
-                className="group rounded-2xl border p-5 text-left transition-all duration-300 hover:-translate-y-1"
-                style={{
-                  borderColor: isActive
-                    ? `${item.color}90`
-                    : '#1e293b',
-                  background: isActive
-                    ? `${item.color}12`
-                    : 'rgba(15,23,42,0.7)',
-                  boxShadow: isActive
-                    ? `0 0 35px ${item.color}25`
-                    : 'none',
-                }}
-              >
-
-                <div
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-xl"
-                  style={{
-                    background: `${item.color}18`,
-                    border: `1px solid ${item.color}50`,
-                  }}
-                >
-                  {code === 'BL1' && '🧬'}
-                  {code === 'BL2' && '⚡'}
-                  {code === 'M' && '↗'}
-                  {code === 'LAR' && '◉'}
-                </div>
-
-                <div
-                  className="text-xl font-bold"
-                  style={{ color: item.color }}
-                >
-                  {code}
-                </div>
-
-                <div className="mt-1 font-semibold text-white">
-                  {item.name}
-                </div>
-
-                <div className="mt-2 text-xs text-slate-500">
-                  {item.short}
-                </div>
-
-              </button>
-            );
-          })}
-
-        </div>
-
-        {/* ACTIVE SUBTYPE */}
-        <div
-          className="overflow-hidden rounded-3xl border bg-slate-900/60"
-          style={{
-            borderColor: `${active.color}55`,
-            boxShadow: `0 0 70px ${active.color}12`,
-          }}
-        >
-
-          {/* title */}
-          <div className="border-b border-slate-800 p-6 md:p-8">
-
-            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-
-              <div>
-
-                <div
-                  className="text-sm font-bold tracking-[0.25em]"
-                  style={{ color: active.color }}
-                >
-                  {selected}
-                </div>
-
-                <h2 className="mt-1 text-4xl font-bold text-white">
-                  {active.name}
-                </h2>
-
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900 px-4 py-2 text-sm text-slate-400">
+                🧬 Molecular Landscape
               </div>
 
-              <div
-                className="w-fit rounded-full border px-4 py-2 text-sm font-semibold"
-                style={{
-                  color: active.color,
-                  borderColor: `${active.color}55`,
-                  background: `${active.color}10`,
-                }}
-              >
-                {active.short}
-              </div>
+              <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
 
-            </div>
+                <div>
 
-          </div>
+                  <h1 className="text-5xl font-bold leading-tight text-white">
+                    Four biological perspectives.
+                  </h1>
 
-          <div className="p-6 md:p-8">
-
-            {/* VISUAL */}
-            <Visual subtype={selected} />
-
-            {/* INFO */}
-            <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-
-              <div>
-
-                <h3 className="mb-3 text-xl font-bold text-white">
-                  🔬 What's happening?
-                </h3>
-
-                <p className="mb-6 leading-relaxed text-slate-400">
-                  {active.description}
-                </p>
-
-                <div className="space-y-4">
-
-                  {active.points.map((point) => (
-
-                    <div
-                      key={point}
-                      className="flex items-start gap-3"
-                    >
-
-                      <span
-                        className="mt-2 h-2 w-2 flex-shrink-0 rounded-full"
-                        style={{
-                          background: active.color,
-                          boxShadow: `0 0 12px ${active.color}`,
-                        }}
-                      />
-
-                      <p className="text-sm leading-relaxed text-slate-400">
-                        {point}
-                      </p>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-              </div>
-
-              <div>
-
-                <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-                  🧬 Science behind it
-                </h3>
-
-                <div className="flex flex-wrap gap-2">
-
-                  {active.pathways.map((pathway) => (
-
-                    <span
-                      key={pathway}
-                      className="rounded-full border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs text-slate-300"
-                    >
-                      {pathway}
-                    </span>
-
-                  ))}
-
-                </div>
-
-                {/* AI CONNECTION */}
-                <div
-                  className="mt-8 rounded-2xl border p-5"
-                  style={{
-                    borderColor: `${active.color}30`,
-                    background: `${active.color}08`,
-                  }}
-                >
-
-                  <h3 className="mb-2 font-bold text-white">
-                    🤖 Why does this matter for our AI?
-                  </h3>
-
-                  <p className="text-sm leading-relaxed text-slate-400">
-                    Our system analyses H&amp;E tissue images and demonstrates
-                    how an AI workflow can classify samples according to
-                    these molecular subtype categories and provide visual
-                    explainability.
+                  <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-400">
+                    Explore the biological programmes associated with
+                    different TNBC molecular subtype profiles.
                   </p>
 
                 </div>
 
+                <div className="text-sm text-slate-500">
+                  Select a subtype →
+                </div>
+
               </div>
 
             </div>
 
-          </div>
+            {/* FOUR CARDS */}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-        </div>
+              {(Object.keys(DATA) as Subtype[]).map((subtype) => (
 
-        {/* AI FLOW */}
-        <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+                <SubtypeCard
+                  key={subtype}
+                  subtype={subtype}
+                  onClick={() => setSelected(subtype)}
+                />
 
-          <h2 className="text-xl font-bold text-white">
-            From Tissue to Insight
-          </h2>
+              ))}
 
-          <p className="mt-1 text-sm text-slate-500">
-            How image analysis connects with molecular subtype interpretation.
-          </p>
+            </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            {/* INFO */}
+            <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
 
-            {[
-              'H&E Image',
-              'CNN / ResNet50',
-              'AI Prediction',
-              'BL1 • BL2 • M • LAR',
-              'Grad-CAM',
-              'Visual Explainability',
-            ].map((step, index) => (
+              <h2 className="text-xl font-bold text-white">
+                From Tissue to Insight
+              </h2>
 
-              <React.Fragment key={step}>
+              <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                Explore each subtype individually to understand its
+                biological programmes and how they connect to AI-based
+                tissue analysis.
+              </p>
 
-                <div className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-center text-sm text-slate-300">
-                  {step}
-                </div>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
 
-                {index < 5 && (
-                  <span className="font-bold text-blue-400">
-                    →
-                  </span>
-                )}
+                {[
+                  'H&E Image',
+                  'CNN / ResNet50',
+                  'AI Prediction',
+                  'BL1 • BL2 • M • LAR',
+                  'Grad-CAM',
+                  'Visual Explainability',
+                ].map((step, index) => (
 
-              </React.Fragment>
+                  <React.Fragment key={step}>
 
-            ))}
+                    <div className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-center text-sm text-slate-300">
+                      {step}
+                    </div>
 
-          </div>
+                    {index < 5 && (
+                      <span className="font-bold text-blue-400">
+                        →
+                      </span>
+                    )}
 
-        </div>
+                  </React.Fragment>
 
-        {/* DISCLAIMER */}
-        <div className="mx-auto max-w-4xl py-8 text-center">
+                ))}
 
-          <p className="text-sm leading-relaxed text-slate-600">
-            These subtype descriptions represent biological patterns used
-            in research. They should not be interpreted as an individual
-            patient's clinical diagnosis.
-          </p>
+              </div>
 
-        </div>
+            </div>
+
+            <div className="mx-auto max-w-4xl py-8 text-center">
+
+              <p className="text-sm leading-relaxed text-slate-600">
+                These subtype descriptions represent biological patterns
+                used in research. They should not be interpreted as an
+                individual patient's clinical diagnosis.
+              </p>
+
+            </div>
+          </>
+
+        )}
+
+        {/* =================================================
+            SELECTED SUBTYPE VIEW
+        ================================================= */}
+
+        {selected !== null && (
+
+          <SelectedSubtype
+            subtype={selected}
+            onBack={() => setSelected(null)}
+          />
+
+        )}
 
       </div>
 
