@@ -4,6 +4,7 @@ import Landing from './pages/Landing';
 import NewAnalysis from './pages/NewAnalysis';
 import SubtypeExplorer from './pages/SubtypeExplorer';
 import Research from './pages/Research';
+import Trials from './pages/Trials';
 import ModelPerformance from './pages/ModelPerformance';
 import ExplainableAI from './pages/ExplainableAI';
 import AnalysisHistory from './pages/AnalysisHistory';
@@ -13,6 +14,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<Landing />} />
 
         <Route path="/analysis" element={<NewAnalysis />} />
@@ -23,11 +25,16 @@ export default function App() {
         <Route path="/research" element={<Research />} />
 
         <Route path="/model" element={<ModelPerformance />} />
-        <Route path="/model/explainability" element={<ExplainableAI />} />
+        <Route
+          path="/model/explainability"
+          element={<ExplainableAI />}
+        />
 
-        <Route path="/trials" element={<Research />} />
+        {/* Clinical Trials */}
+        <Route path="/trials" element={<Trials />} />
 
         <Route path="/about" element={<About />} />
+
       </Routes>
     </BrowserRouter>
   );
