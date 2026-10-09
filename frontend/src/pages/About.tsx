@@ -131,8 +131,7 @@ export default function About() {
               <p className="text-xs text-slate-400 mt-1">25MIB10038</p>
               <p className="text-xs text-indigo-400 mt-3">
                 Frontend & Web Architecture
-                Explainable AI (Grad-CAM) & Evaluation
-                Histopathology Data & Preprocessing
+               
               </p>
             </div>
 
